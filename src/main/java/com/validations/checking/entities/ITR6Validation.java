@@ -60,6 +60,18 @@ public class ITR6Validation {
 	 @Pattern(regexp="[+]{1}[\\d]{1,4}")
 	 private String countryCode;
 	 
+	 @Pattern(regexp="[\\d\\D]{7}")//exactly 7
+	 private String bsrCode;
+	 
+	 @Pattern(regexp="[\\d\\D]{5}")//exactly 5 digits
+	 private String serialNumberOfChallan;
+	 
+	 @Pattern(regexp="[\\d\\D]{0,20}")//0  to 20 digits
+	 private String accountNumber;
+	 
+	 @Pattern(regexp="[\\d\\D]{0,12}")
+	 private String sebiRegNumber;
+	 
 
 	//default constructor
 	public ITR6Validation() {
@@ -76,15 +88,18 @@ public ITR6Validation(int c_Id,
 		 @Pattern(regexp = "[A-Z]{5}[\\d]{4}[A-Z]{1}")  String panId,
 		 @Pattern(regexp = "[7-9]{1}[\\d]{9}") String phNo,
 		 @Pattern(regexp = "[1-9]{1}[\\d]{5}")  String zipCode,
-		 @Pattern(regexp = "[A-Za-z0-9_.]+[@][a-z]+[.][a-z]{2,3}") String emailId,
-		
+		 @Pattern(regexp = "[A-Za-z0-9_.]+[@][a-z]+[.][a-z]{2,3}") String emailId,		
 		 @Pattern(regexp = "^([L|U]{1})([\\d]{5})([A-Za-z]{2})([\\d]{4})([A-Za-z]{3})([\\d]{6})$") String cIN,
-		 @Pattern(regexp = "[\\d]{8}") String dIN,
-		
+		 @Pattern(regexp = "[\\d]{8}") String dIN,		
 		 @Pattern(regexp = "(0[1-9]|[12][0-9]|3[01])[/.-](0[1-9]|1[012])[/.-]\\d{4}") String date,
 		 @Pattern(regexp = "[A-Za-z]+") String country,
 		 @Pattern(regexp = "[\\d]{0,14}") String amount,
-		 @Pattern(regexp = "[+]{1}[\\d]{1,4}") String countryCode) {
+		 @Pattern(regexp = "[+]{1}[\\d]{1,4}") String countryCode,
+		 @Pattern(regexp = "[\\d\\D]{7}") String bsrCode,
+		 @Pattern(regexp = "[\\d\\D]{5}") String serialNumberOfChallan,
+		 @Pattern(regexp = "[\\d\\D]{0,20}") String accountNumber,
+		 @Pattern(regexp = "[\\d\\D]{0,12}") String sebiRegNumber){
+
 		super();
 		this.c_Id = c_Id;
 		this.c_name = c_name;
@@ -100,6 +115,10 @@ public ITR6Validation(int c_Id,
 		this.country = country;
 		this.amount = amount;
 		this.countryCode = countryCode;
+		this.bsrCode = bsrCode;
+		this.serialNumberOfChallan =serialNumberOfChallan;
+		this.accountNumber=accountNumber;
+		this.sebiRegNumber=sebiRegNumber;
 	}
 
 
@@ -213,6 +232,38 @@ public String getdIN() {
 
 public void setdIN(String dIN) {
 	this.dIN = dIN;
+}
+
+public String getBsrCode() {
+	return bsrCode;
+}
+
+public void setBsrCode(String bsrCode) {
+	this.bsrCode = bsrCode;
+}
+
+public String getSerialNumberOfChallan() {
+	return serialNumberOfChallan;
+}
+
+public void setSerialNumberOfChallan(String serialNumberOfChallan) {
+	this.serialNumberOfChallan = serialNumberOfChallan;
+}
+
+public String getAccountNumber() {
+	return accountNumber;
+}
+
+public void setAccountNumber(String accountNumber) {
+	this.accountNumber = accountNumber;
+}
+
+public String getSebiRegNumber() {
+	return sebiRegNumber;
+}
+
+public void setSebiRegNumber(String sebiRegNumber) {
+	this.sebiRegNumber = sebiRegNumber;
 }
 
 
