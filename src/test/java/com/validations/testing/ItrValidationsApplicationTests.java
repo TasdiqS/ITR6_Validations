@@ -20,24 +20,30 @@ import com.validations.checking.entities.ITR6Validation;
 	void validation() {
 
 		ITR6Validation val = new ITR6Validation();
-
-		val.setC_name("COMPANY");
-		val.setAddress("MUMBAI WADALA 400037");
-		val.setZipCode("400037");
-		val.setEmailId("shaikhtasdi@gmail.com");
-		val.setAdhaarId("912342234567");
-		val.setPanId("EDCBA1234F");
-		val.setPhNo("9745000000");
+		
+		val.setAccountNumber("123456789");
+		val.setAddress("Kondhwa");
+		val.setAdhaarId("312345678901");
+		val.setAmount("222000");
+		val.setArticleOfDtaa("12345");
+		val.setBsrCode("1234567");
 		val.setcIN("L12345AB1234ABC123456");
-		val.setdIN("12345678");
-		val.setDate("12/01/2021");
-		val.setCountry("India");
-		val.setAmount("20000");
-		val.setAccountNumber("123456789012345690");
-		val.setBsrCode("12345AB");
-		val.setSerialNumberOfChallan("123AB");
-		val.setSebiRegNumber("12345678");
+		val.setCity("Bombay");
+		val.setCompanyPanNum("ABCCA1234A");
+		val.setCountry("Hindustan");
 		val.setCountryCode("+91");
+		val.setDate("12/17/2021");
+		val.setdIN("12345678");
+		val.setEmailId("akshay@gmail.com");
+		val.setName("Akshay");
+		val.setPersonPanNum("ABCPA1234A");
+		val.setPhNo("9876543212");
+		val.setPinCode("411046");
+//		val.setRate("50");
+		val.setSebiRegNumber("12345");
+		val.setSerialNumberOfChallan("12345");
+		val.setZipCode("65434");
+		
 		
 		this.valrepo.save(val);
 		//boolean result = 
