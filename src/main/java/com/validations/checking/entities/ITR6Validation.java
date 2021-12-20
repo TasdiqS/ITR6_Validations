@@ -6,35 +6,37 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 
 @Entity
-@Table(name = "newValid1") 
+@Table(name = "newValidIN") 
 @SequenceGenerator(name="seq", initialValue=1, allocationSize=100)
 public class ITR6Validation {	 
-		
+
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq")
 	@Id
 	 private int c_Id; //not null
 	 
-	 @Pattern(regexp="[\\d\\D]{0,125}")//chars, numbers, spaces and '&' min 1 digit max 30
+	
+	@Pattern(regexp="[\\d\\D]+{0,125}")//min 0 max 125
 	 private String name;
 	 
-	 @Pattern(regexp="[\\d\\D]{0,200}")//chars, numbers, '&@#)(' and space.
+	 @Pattern(regexp="[\\d\\D]{0,200}")//min 0 max 200.
 	 private String address;
 	 
 	 @Pattern(regexp="[\\d\\D]{0,50}")//chars, numbers, '&@#)(' and space.
 	 private String city;
 
-	 @Pattern(regexp="[A-Za-z]+")
+	 @Pattern(regexp="[A-Za-z]{0,125}")
 	 private String country;
 	 
 	 @Pattern(regexp="[+]{1}[\\d]{1,4}")
 	 private String countryCode;
 	 
-	 @Pattern(regexp="[1-9]{1}[\\d]{4}")//Should be 6 digits and not start with 0
+	 @Pattern(regexp="[1-9]{1}[\\d]{4}")//Should be 5 digits and not start with 0
 	 private String zipCode;
 	 
 	 @Pattern(regexp="[1-9]{1}[\\d]{5}")//Should be 6 digits and not start with 0
@@ -43,7 +45,7 @@ public class ITR6Validation {
 	 @Pattern(regexp = "[2-9]{1}[\\d]{11}")//must not start with 0 or 1 and should be 12 digits
 	 private String adhaarId;
 	 
-	 @Pattern(regexp = "[A-Z]{3}[P]{1}[A-Z]{1}[\\d]{4}[A-Z]{1}")//first five char 4numbers and last 1 char
+	 @Pattern(regexp = "[A-Z]{3}[P]{1}[A-Z]{1}[\\d]{4}[A-Z]{1}")//5 char 4 number and last 1 char 4th should be 'P'
 	 private String personPanNum;
 	 
 	 @Pattern(regexp="[A-Z]{3}[C]{1}[A-Z]{1}[\\d]{4}[A-Z]{1}")
@@ -72,49 +74,27 @@ public class ITR6Validation {
 //	 @Pattern(regexp="[0-9]{1,3}") //0 to 100
 //	 private String rate;
 	 
-	 @Pattern(regexp="[\\d\\D]{7}")//exactly 7
+	 @Pattern(regexp="[0-9]{3}[A-Za-z0-9]{4}")//BSR code- 7 digit code, first 3 numeric and 4 alphanumeric
 	 private String bsrCode;
 	 
-	 @Pattern(regexp="[\\d\\D]{5}")//exactly 5 digits
+	 @Pattern(regexp="[\\d]{5}")//exactly 5 digit numbers
 	 private String serialNumberOfChallan;
 	 
-	 @Pattern(regexp="[\\d\\D]{0,20}")//0  to 20 digits
+	 @Pattern(regexp="[\\d\\D]{0,20}")//upto 20 digits numbers and characters
 	 private String accountNumber;
 	 
-	 @Pattern(regexp="[\\d\\D]{0,12}")
+	 @Pattern(regexp="[\\d\\D]{0,12}")//upto 12 digits numbers and characters
 	 private String sebiRegNumber;
 
 	 @Pattern(regexp="[\\d\\D]{0,16}")
 	 private String articleOfDtaa;
+	 
+	 @Pattern(regexp="[A-Z]{4}[0]{1}[A-Z0-9]{6}") //it should be exactly 11 in length with first four alphabets , followed by zero and remaining 6 should be alphanumeric
+	 private String ifscCode;
 
-
-public ITR6Validation() {
-		super();
-		this.c_Id = c_Id;
-		this.name = name;
-		this.address = address;
-		this.city = city;
-		this.country = country;
-		this.countryCode = countryCode;
-		this.zipCode = zipCode;
-		this.pinCode = pinCode;
-		this.adhaarId = adhaarId;
-		this.personPanNum = personPanNum;
-		this.companyPanNum = companyPanNum;
-		this.phNo = phNo;
-		this.emailId = emailId;
-		this.cIN = cIN;
-		this.dIN = dIN;
-		this.date = date;
-		this.amount = amount;
-//		this.rate = rate;
-		this.bsrCode = bsrCode;
-		this.serialNumberOfChallan = serialNumberOfChallan;
-		this.accountNumber = accountNumber;
-		this.sebiRegNumber = sebiRegNumber;
-		this.articleOfDtaa = articleOfDtaa;
-	}
-
+		public ITR6Validation() {
+			// TODO Auto-generated constructor stub
+		}
 
 public int getC_Id() {
 	return c_Id;
@@ -346,5 +326,15 @@ public void setArticleOfDtaa(String articleOfDtaa) {
 }
 
 
+public String getIfscCode() {
+	return ifscCode;
+}
 
+
+public void setIfscCode(String ifscCode) {
+	this.ifscCode = ifscCode;
+}
+
+
+//
 }
