@@ -54,17 +54,10 @@ public class General2 {
 	 @Pattern(regexp="[1-9]{1}[\\d]{4}")//Should be 5 digits and not start with 0
 	 private String zipCode;
 
-<<<<<<< HEAD
 	 //Getters and setters
 	public String getPinCode() {
 		return pinCode;
 	}
-=======
-	public String getPinCode() {
-		return pinCode;
-	}
-
->>>>>>> 5e513e9858f701168ee161ea0ad8d33d9c8e865b
 	public void setPinCode(String pinCode) {
 		this.pinCode = pinCode;
 	}
@@ -72,10 +65,6 @@ public class General2 {
 	public String getPersonPanNum() {
 		return personPanNum;
 	}
-<<<<<<< HEAD
-=======
-
->>>>>>> 5e513e9858f701168ee161ea0ad8d33d9c8e865b
 	public void setPersonPanNum(String personPanNum) {
 		this.personPanNum = personPanNum;
 	}
@@ -83,10 +72,6 @@ public class General2 {
 	public String getCompanyPanNum() {
 		return companyPanNum;
 	}
-<<<<<<< HEAD
-=======
-
->>>>>>> 5e513e9858f701168ee161ea0ad8d33d9c8e865b
 	public void setCompanyPanNum(String companyPanNum) {
 		this.companyPanNum = companyPanNum;
 	}
@@ -94,10 +79,6 @@ public class General2 {
 	public String getDate() {
 		return date;
 	}
-<<<<<<< HEAD
-=======
-
->>>>>>> 5e513e9858f701168ee161ea0ad8d33d9c8e865b
 	public void setDate(String date) {
 		this.date = date;
 	}
@@ -105,10 +86,6 @@ public class General2 {
 	public String getCname() {
 		return cname;
 	}
-<<<<<<< HEAD
-=======
-
->>>>>>> 5e513e9858f701168ee161ea0ad8d33d9c8e865b
 	public void setCname(String cname) {
 		this.cname = cname;
 	}
@@ -116,10 +93,6 @@ public class General2 {
 	public String getAddress() {
 		return address;
 	}
-<<<<<<< HEAD
-=======
-
->>>>>>> 5e513e9858f701168ee161ea0ad8d33d9c8e865b
 	public void setAddress(String address) {
 		this.address = address;
 	}
@@ -127,10 +100,6 @@ public class General2 {
 	public String getCity() {
 		return city;
 	}
-<<<<<<< HEAD
-=======
-
->>>>>>> 5e513e9858f701168ee161ea0ad8d33d9c8e865b
 	public void setCity(String city) {
 		this.city = city;
 	}
@@ -138,10 +107,6 @@ public class General2 {
 	public String getAdhaarId() {
 		return adhaarId;
 	}
-<<<<<<< HEAD
-=======
-
->>>>>>> 5e513e9858f701168ee161ea0ad8d33d9c8e865b
 	public void setAdhaarId(String adhaarId) {
 		this.adhaarId = adhaarId;
 	}
@@ -149,10 +114,6 @@ public class General2 {
 	public String getdIN() {
 		return dIN;
 	}
-<<<<<<< HEAD
-=======
-
->>>>>>> 5e513e9858f701168ee161ea0ad8d33d9c8e865b
 	public void setdIN(String dIN) {
 		this.dIN = dIN;
 	}
@@ -160,10 +121,6 @@ public class General2 {
 	public String getTaxPayersRegNum() {
 		return taxPayersRegNum;
 	}
-<<<<<<< HEAD
-=======
-
->>>>>>> 5e513e9858f701168ee161ea0ad8d33d9c8e865b
 	public void setTaxPayersRegNum(String taxPayersRegNum) {
 		this.taxPayersRegNum = taxPayersRegNum;
 	}
@@ -171,10 +128,6 @@ public class General2 {
 	public String getZipCode() {
 		return zipCode;
 	}
-<<<<<<< HEAD
-=======
-
->>>>>>> 5e513e9858f701168ee161ea0ad8d33d9c8e865b
 	public int getC_Id() {
 		return c_Id;
 	}
@@ -187,19 +140,11 @@ public class General2 {
 		this.zipCode = zipCode;
 	}
 
-<<<<<<< HEAD
 	//default constructor of super
-=======
-	
->>>>>>> 5e513e9858f701168ee161ea0ad8d33d9c8e865b
 	public General2() {
 		super();
 	}
 
-<<<<<<< HEAD
-	//param constructor
-=======
->>>>>>> 5e513e9858f701168ee161ea0ad8d33d9c8e865b
 	public General2(int c_Id, @Pattern(regexp = "[1-9]{1}[\\d]{5}") String pinCode,
 			@Pattern(regexp = "[A-Z]{3}[P]{1}[A-Z]{1}[\\d]{4}[A-Z]{1}") String personPanNum,
 			@Pattern(regexp = "[A-Z]{3}[C]{1}[A-Z]{1}[\\d]{4}[A-Z]{1}") String companyPanNum, String date,
