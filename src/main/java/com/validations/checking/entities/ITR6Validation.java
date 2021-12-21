@@ -12,14 +12,17 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 
 @Entity
-@Table(name = "newValidIN") 
+@Table(name = "ITR6table") 
 @SequenceGenerator(name="seq", initialValue=1, allocationSize=100)
-public class ITR6Validation {	 
+public class ITR6Validation {
+	/*
+	 * This file contains validation fields of every type and every tab combined.
+	 * total 22 fields
+	 */
 
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq")
 	@Id
 	 private int c_Id; //not null
-	 
 	
 	@Pattern(regexp="[\\d\\D]+{0,125}")//min 0 max 125
 	 private String name;
@@ -50,7 +53,7 @@ public class ITR6Validation {
 	 
 	 @Pattern(regexp="[A-Z]{3}[C]{1}[A-Z]{1}[\\d]{4}[A-Z]{1}")
 	 private String companyPanNum;
-	 
+	  
 	 @Pattern(regexp = "[7-9]{1}[\\d]{9}")//start with 7,8 or 9 and 10 digits long
 	 private String phNo;
 	 

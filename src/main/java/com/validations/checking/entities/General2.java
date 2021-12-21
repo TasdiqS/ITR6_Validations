@@ -54,10 +54,10 @@ public class General2 {
 	 @Pattern(regexp="[1-9]{1}[\\d]{4}")//Should be 5 digits and not start with 0
 	 private String zipCode;
 
+	 //Getters and setters
 	public String getPinCode() {
 		return pinCode;
 	}
-
 	public void setPinCode(String pinCode) {
 		this.pinCode = pinCode;
 	}
@@ -65,7 +65,6 @@ public class General2 {
 	public String getPersonPanNum() {
 		return personPanNum;
 	}
-
 	public void setPersonPanNum(String personPanNum) {
 		this.personPanNum = personPanNum;
 	}
@@ -73,7 +72,6 @@ public class General2 {
 	public String getCompanyPanNum() {
 		return companyPanNum;
 	}
-
 	public void setCompanyPanNum(String companyPanNum) {
 		this.companyPanNum = companyPanNum;
 	}
@@ -81,7 +79,6 @@ public class General2 {
 	public String getDate() {
 		return date;
 	}
-
 	public void setDate(String date) {
 		this.date = date;
 	}
@@ -89,7 +86,6 @@ public class General2 {
 	public String getCname() {
 		return cname;
 	}
-
 	public void setCname(String cname) {
 		this.cname = cname;
 	}
@@ -97,7 +93,6 @@ public class General2 {
 	public String getAddress() {
 		return address;
 	}
-
 	public void setAddress(String address) {
 		this.address = address;
 	}
@@ -105,7 +100,6 @@ public class General2 {
 	public String getCity() {
 		return city;
 	}
-
 	public void setCity(String city) {
 		this.city = city;
 	}
@@ -113,7 +107,6 @@ public class General2 {
 	public String getAdhaarId() {
 		return adhaarId;
 	}
-
 	public void setAdhaarId(String adhaarId) {
 		this.adhaarId = adhaarId;
 	}
@@ -121,7 +114,6 @@ public class General2 {
 	public String getdIN() {
 		return dIN;
 	}
-
 	public void setdIN(String dIN) {
 		this.dIN = dIN;
 	}
@@ -129,7 +121,6 @@ public class General2 {
 	public String getTaxPayersRegNum() {
 		return taxPayersRegNum;
 	}
-
 	public void setTaxPayersRegNum(String taxPayersRegNum) {
 		this.taxPayersRegNum = taxPayersRegNum;
 	}
@@ -137,7 +128,6 @@ public class General2 {
 	public String getZipCode() {
 		return zipCode;
 	}
-
 	public int getC_Id() {
 		return c_Id;
 	}
@@ -150,7 +140,7 @@ public class General2 {
 		this.zipCode = zipCode;
 	}
 
-	
+	//default constructor of super
 	public General2() {
 		super();
 	}

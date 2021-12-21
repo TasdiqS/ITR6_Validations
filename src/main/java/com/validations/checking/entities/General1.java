@@ -1,5 +1,6 @@
 package com.validations.checking.entities;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,7 +12,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "General1_val")
+@Table(name = "Genral1_val")
 public class General1 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -214,4 +215,10 @@ public class General1 {
 	public General1() {
 		super();
 	}
+	
+	
+	
+	
+
 }
+

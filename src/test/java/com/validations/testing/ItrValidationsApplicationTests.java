@@ -14,6 +14,7 @@ import com.validations.checking.entities.ITR6Validation;
 @SpringBootTest
 @ContextConfiguration(classes = ItrValidationsApplication.class)
  class ItrValidationsApplicationTests {
+	
 	@Autowired
 	private ValidationDao valrepo;
 	
