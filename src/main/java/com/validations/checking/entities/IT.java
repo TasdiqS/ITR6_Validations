@@ -10,34 +10,19 @@ import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "newValidIT") 
-@SequenceGenerator(name="seq", initialValue=1, allocationSize=100)
 public class IT {
-	
-	public IT(int iT_Id, @Pattern(regexp = "^[0-9]{3}[A-Za-z0-9_]{4}$") String bsr_no,
-			@Pattern(regexp = "[0-9]{1}[0-9]{4}") String serial_no_challan,
-			@Pattern(regexp = "[1-9]{1,14}") String amount) {
-		super();
-		IT_Id = iT_Id;
-		this.bsr_no = bsr_no;
-		this.serial_no_challan = serial_no_challan;
-		this.amount = amount;
-	}
-	
-	public IT() {
-		
-	}
 
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq")
+	@GeneratedValue(strategy=GenerationType.AUTO, generator="seq")
 	@Id
 	 private int IT_Id; //not null
 
-	@Pattern(regexp="^[0-9]{3}[A-Za-z0-9_]{4}$")
+	@Pattern(regexp="[0-9]{3}[A-Za-z0-9_]{4}")
 	private String bsr_no;
 
 	@Pattern(regexp="[0-9]{1}[0-9]{4}")
 	private String serial_no_challan;
 
-	@Pattern(regexp = "[1-9]{1,14}")
+	@Pattern(regexp = "[1-9]{1}[0-9]{1,13}")
 	private String amount;
 
 	public String getBsr_no() {
@@ -62,6 +47,25 @@ public class IT {
 
 	public void setAmount(String amount) {
 		this.amount = amount;
+	}
+
+	public Integer getC_Id() {
+		
+		return IT_Id;
+	}
+	
+	public IT(int iT_Id, @Pattern(regexp = "^[0-9]{3}[A-Za-z0-9_]{4}$") String bsr_no,
+			@Pattern(regexp = "[0-9]{1}[0-9]{4}") String serial_no_challan,
+			@Pattern(regexp = "[1-9]{1,14}") String amount) {
+		super();
+		IT_Id = iT_Id;
+		this.bsr_no = bsr_no;
+		this.serial_no_challan = serial_no_challan;
+		this.amount = amount;
+	}
+	
+	public IT() {
+		
 	}
 
 	

@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import com.validations.checking.ItrValidationsApplication;
+import com.validations.checking.dao.ITDao;
 import com.validations.checking.dao.ValidationDao;
+import com.validations.checking.entities.IT;
 import com.validations.checking.entities.ITR6Validation;
 
 @SpringBootTest
@@ -14,7 +16,6 @@ import com.validations.checking.entities.ITR6Validation;
  class ItrValidationsApplicationTests {
 	@Autowired
 	private ValidationDao valrepo;
-
 	
 	@Test
 	void validation() {
@@ -26,7 +27,7 @@ import com.validations.checking.entities.ITR6Validation;
 		val.setAdhaarId("312345678901");
 		val.setAmount("222000");
 		val.setArticleOfDtaa("12345");
-		val.setBsrCode("1234567");
+		//val.setBsrCode("1234567");
 		val.setcIN("L12345AB1234ABC123456");
 		val.setCity("Bombay");
 		val.setCompanyPanNum("ABCCA1234A");
@@ -52,4 +53,5 @@ import com.validations.checking.entities.ITR6Validation;
 		assertThat(true).isTrue();
 
 	}
+	
 }
