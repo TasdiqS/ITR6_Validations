@@ -2,9 +2,10 @@ package com.validations.checking.service;
 
 import java.util.List;
 
+
 import com.validations.checking.entities.General1;
 import com.validations.checking.entities.General2;
-
+import com.validations.checking.entities.IT;
 import com.validations.checking.entities.ITR6Validation;
 import com.validations.checking.entities.NatureOfBusiness;
 
@@ -23,5 +24,8 @@ public interface ValidationService {
 	
 	public List<General1> getGeneral1Data();
 	public General1 addGeneral1Data(General1 data);
+	
+	public IT additData(IT data);
+	public List<com.validations.checking.entities.IT> getitData();
 
 }

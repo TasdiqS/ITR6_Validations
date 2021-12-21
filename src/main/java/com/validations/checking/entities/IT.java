@@ -8,6 +8,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.Pattern;
 
+
 @Entity
 @Table(name = "newValidIT") 
 public class IT {

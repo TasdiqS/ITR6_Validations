@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.validations.checking.entities.General1;
 import com.validations.checking.entities.General2;
+import com.validations.checking.entities.IT;
 import com.validations.checking.entities.ITR6Validation;
 import com.validations.checking.entities.NatureOfBusiness;
 import com.validations.checking.service.ValidationService;
@@ -25,6 +26,7 @@ public class ValidationsController {
 	{
 		return validationservice.test();
 	}
+	
 	
 	@PostMapping("/validations")
 	public ITR6Validation addData(@RequestBody ITR6Validation data) {
@@ -61,5 +63,19 @@ public class ValidationsController {
 	public List<General1> getGData(){
 		return validationservice.getGeneral1Data();
 	}
+	
+	
+	
+	
+	@PostMapping("/it")
+	public IT addData(@RequestBody IT data) {
+		return validationservice.additData(data);
+	}
+	@GetMapping("/it")
+	public List<IT> getitData(){
+		return validationservice.getitData();
+	}
+
+
 	
 }
