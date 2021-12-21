@@ -1,14 +1,14 @@
 package com.validations.checking.controller;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
+import com.validations.checking.entities.General2;
 import com.validations.checking.entities.ITR6Validation;
+import com.validations.checking.entities.NatureOfBusiness;
 import com.validations.checking.service.ValidationService;
 
 @RestController
@@ -17,25 +17,38 @@ public class ValidationsController {
 	@Autowired
 	private ValidationService validationservice;
 	
+	
 	@GetMapping("/testing")
 	public String test()
 	{
 		return validationservice.test();
-		//return "returning from Controller";
 	}
 	
-	@PostMapping("/valid")
+	@PostMapping("/validations")
 	public ITR6Validation addData(@RequestBody ITR6Validation data) {
 		return validationservice.addData(data);
-		
-		
 	}
-	
-	
-	@GetMapping("/valid")
+	@GetMapping("/validations")
 	public List<ITR6Validation> getData(){
 		return validationservice.getData();
-		
 	}
-		
+	
+	@PostMapping("/General2")
+	public General2 addData(@RequestBody General2 data) {
+		return validationservice.addGeneral2Data(data);
+	}
+	@GetMapping("/General2")
+	public List<General2> getG2Data(){
+		return validationservice.getGeneral2Data();
+	}
+	
+	@PostMapping("/NatureOfBusiness")
+	public NatureOfBusiness addNobData(@RequestBody NatureOfBusiness data) {
+		return validationservice.addNOBData(data);
+	}
+	@GetMapping("/NatureOfBusiness")
+	public List<NatureOfBusiness> getNOBData(){
+		return validationservice.getNOBData();
+	}
+	
 }
