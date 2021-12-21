@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.validations.checking.entities.General1;
 import com.validations.checking.entities.General2;
 import com.validations.checking.entities.ITR6Validation;
 import com.validations.checking.entities.NatureOfBusiness;
@@ -49,6 +51,15 @@ public class ValidationsController {
 	@GetMapping("/NatureOfBusiness")
 	public List<NatureOfBusiness> getNOBData(){
 		return validationservice.getNOBData();
+	}
+	
+	@PostMapping("/General1")
+	public General1 addData(@RequestBody General1 data) {
+		return validationservice.addGeneral1Data(data);
+	}
+	@GetMapping("/General1")
+	public List<General1> getGData(){
+		return validationservice.getGeneral1Data();
 	}
 	
 }

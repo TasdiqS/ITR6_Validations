@@ -3,9 +3,12 @@ package com.validations.checking.service;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.validations.checking.dao.General1Dao;
 import com.validations.checking.dao.General2Dao;
 import com.validations.checking.dao.NatureOfBusinessDao;
 import com.validations.checking.dao.ValidationDao;
+import com.validations.checking.entities.General1;
 import com.validations.checking.entities.General2;
 import com.validations.checking.dao.General2Dao;
 import com.validations.checking.dao.ValidationDao;
@@ -25,6 +28,9 @@ public class ValidationServiceImpl implements ValidationService {
 	
 	@Autowired
 	private General2Dao general2Dao;
+	
+	@Autowired
+	private General1Dao general1Dao;
 	
 	@Override
 	public String test() {
@@ -61,4 +67,14 @@ public class ValidationServiceImpl implements ValidationService {
 	public List<NatureOfBusiness> getNOBData() {
 		return natureOfBusinessDao.findAll();
 	}
+	
+	@Override
+	public List<General1> getGeneral1Data() {
+		return general1Dao.findAll();
+	}
+	@Override
+	public General1 addGeneral1Data(General1 data) {
+		return general1Dao.save(data);
+	}
+
 }
