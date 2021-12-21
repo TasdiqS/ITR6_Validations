@@ -7,11 +7,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.validations.checking.entities.EI;
 import com.validations.checking.entities.General1;
 import com.validations.checking.entities.General2;
 import com.validations.checking.entities.IT;
 import com.validations.checking.entities.ITR6Validation;
 import com.validations.checking.entities.NatureOfBusiness;
+import com.validations.checking.entities.PartB;
 import com.validations.checking.service.ValidationService;
 
 @RestController
@@ -74,6 +76,31 @@ public class ValidationsController {
 	@GetMapping("/it")
 	public List<IT> getitData(){
 		return validationservice.getitData();
+	}
+	
+	@PostMapping("/EI")
+	public EI addData(@RequestBody EI data)
+	{
+		return validationservice.addEIData(data);
+	}
+	
+	@GetMapping("/EI")
+	public List<EI> getEIData()
+	{
+		return validationservice.getEIData();	
+	}
+	
+	
+	@PostMapping("/PartB")
+	public PartB addData(@RequestBody PartB data)
+	{
+		return validationservice.addPartBData(data);
+	}
+	
+	@GetMapping("/PartB")
+	public List<PartB> getPartBData()
+	{
+		return validationservice.getPartBData();	
 	}
 
 
