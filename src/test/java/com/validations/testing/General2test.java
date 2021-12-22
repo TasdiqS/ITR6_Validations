@@ -1,44 +1,109 @@
 package com.validations.testing;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.math.BigDecimal;
+import java.util.Set;
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 
 import com.validations.checking.ItrValidationsApplication;
-import com.validations.checking.dao.General2Dao;
 import com.validations.checking.entities.General2;
 
 @SpringBootTest
-@ContextConfiguration(classes = ItrValidationsApplication.class)
+@ContextConfiguration(classes=ItrValidationsApplication.class)
 class General2test {
+	
+	private Validator validator;
+	
+	General2 val = new General2();
 
-	@Autowired
-	private General2Dao valrepo;
-	@Test
-	void test() {
-
-			General2 val = new General2();
-			
-			val.setAddress("address IFSC tes"); //
-			val.setAdhaarId("312345678901"); //
-			val.setCity("Pune");  //
-			val.setCompanyPanNum("ABCCA1234A"); //
-			val.setDate("12/10/2021"); //
-			val.setdIN("12345678"); //
-			val.setPersonPanNum("ABCPA1234A"); //
-			val.setPinCode("654321"); //
-			val.setZipCode("54321"); //
-			val.setCname("Accentureeee"); //
-			val.setTaxPayersRegNum("123abc"); //
-			
-			
-			this.valrepo.save(val);
-			valrepo.existsById(val.getC_Id());
-			assertThat(true).isTrue();
-		}
-
+	@BeforeEach
+	public void setUp() {
+		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+		validator = factory.getValidator();
 	}
+
+	@Test
+	public void cName() {
+		val.setCname("Anemoi");
+		Set<ConstraintViolation<General2>> violations = validator.validate(val);
+		assertTrue(violations.isEmpty());
+	}
+	@Test
+	public void Address() {
+		val.setAddress("Anemoi");
+		Set<ConstraintViolation<General2>> violations = validator.validate(val);
+		
+		assertTrue(violations.isEmpty());
+	}
+	@Test
+	public void AdhaarId() {
+		val.setAdhaarId("312345678901");
+		Set<ConstraintViolation<General2>> violations = validator.validate(val);
+		
+		assertTrue(violations.isEmpty());
+	}
+	@Test
+	public void City() {
+		val.setCity("Anemoi");
+		Set<ConstraintViolation<General2>> violations = validator.validate(val);
+		
+		assertTrue(violations.isEmpty());
+	}
+	@Test
+	public void CompanyPan() {
+		val.setCompanyPanNum("ABCCA1234A");
+		Set<ConstraintViolation<General2>> violations = validator.validate(val);
+		
+		assertTrue(violations.isEmpty());
+	}
+	@Test
+	public void Date() {
+		val.setDate("Anemoi");
+		Set<ConstraintViolation<General2>> violations = validator.validate(val);
+		
+		assertTrue(violations.isEmpty());
+	}
+	@Test
+	public void din() {
+		val.setdIN("12345678");
+		Set<ConstraintViolation<General2>> violations = validator.validate(val);
+		
+		assertTrue(violations.isEmpty());
+	}
+	@Test
+	public void PercentOfSharesHoldingCompany() {
+		val.setPercentageOfSharesOfHoldingCompany(new BigDecimal("9.00"));
+		Set<ConstraintViolation<General2>> violations = validator.validate(val);
+		
+		assertTrue(violations.isEmpty());
+	}
+	@Test
+	public void PercentOfSharesOwnerShareHolder() {
+		val.setPercentageOfSharesOfShareHolder(new BigDecimal("12.00"));
+		Set<ConstraintViolation<General2>> violations = validator.validate(val);
+		
+		assertTrue(violations.isEmpty());
+	}
+	@Test
+	public void PersonPan() {
+		val.setPersonPanNum("ABCPA1234A");
+		Set<ConstraintViolation<General2>> violations = validator.validate(val);
+		
+		assertTrue(violations.isEmpty());
+	}
+	@Test
+	public void PinCode() {
+		val.setPinCode("654321");
+		Set<ConstraintViolation<General2>> violations = validator.validate(val);
+		
+		assertTrue(violations.isEmpty());
+	}
+}

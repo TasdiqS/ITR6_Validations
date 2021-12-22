@@ -1,11 +1,14 @@
 package com.validations.checking.entities;
 
+import java.math.BigDecimal;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.Pattern;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -14,8 +17,11 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Table(name = "General2") 
 @SequenceGenerator(name="seq", initialValue=1, allocationSize=100)
 public class General2 {
-	//pincode, company pan, person pan, date, company name, address, city
-	//adhaar number, din number, taxpayers reg number, ZIP Code
+	/*total 13 fields
+	 * pincode, company pan, person pan, date, company name, address, city, adhaar
+	 * number, din number, taxpayers reg number, ZIP Code,
+	 * percentageOfSharesOfHoldingCompany, percentageOfSharesOfShareHolder
+	 */
 	 
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq")
 	@Id
@@ -53,6 +59,12 @@ public class General2 {
 	 
 	 @Pattern(regexp="[1-9]{1}[\\d]{4}")//Should be 5 digits and not start with 0
 	 private String zipCode;
+	 
+	 @Min(0) @Max(100) //should be 0-100 and automatically converts into decimal
+	 private BigDecimal percentageOfSharesOfHoldingCompany;
+	 
+	 @Min(10) @Max(100) //should be 10-100 and automatically converts data into decimal
+	 private BigDecimal percentageOfSharesOfShareHolder;
 
 	 //Getters and setters
 	public String getPinCode() {
@@ -139,19 +151,32 @@ public class General2 {
 	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
 	}
-
+	
+	public BigDecimal getPercentageOfSharesOfHoldingCompany() {
+		return percentageOfSharesOfHoldingCompany;
+	}
+	public void setPercentageOfSharesOfHoldingCompany(BigDecimal percentageOfSharesOfHoldingCompany) {
+		this.percentageOfSharesOfHoldingCompany = percentageOfSharesOfHoldingCompany;
+	}
+	public BigDecimal getPercentageOfSharesOfShareHolder() {
+		return percentageOfSharesOfShareHolder;
+	}
+	public void setPercentageOfSharesOfShareHolder(BigDecimal percentageOfSharesOfShareHolder) {
+		this.percentageOfSharesOfShareHolder = percentageOfSharesOfShareHolder;
+	}
 	//default constructor of super
 	public General2() {
 		super();
 	}
-
 	public General2(int c_Id, @Pattern(regexp = "[1-9]{1}[\\d]{5}") String pinCode,
 			@Pattern(regexp = "[A-Z]{3}[P]{1}[A-Z]{1}[\\d]{4}[A-Z]{1}") String personPanNum,
 			@Pattern(regexp = "[A-Z]{3}[C]{1}[A-Z]{1}[\\d]{4}[A-Z]{1}") String companyPanNum, String date,
 			@Pattern(regexp = "[\\d\\D]+{0,125}") String cname, @Pattern(regexp = "[\\d\\D]{0,200}") String address,
 			@Pattern(regexp = "[\\d\\D]{0,50}") String city, @Pattern(regexp = "[2-9]{1}[\\d]{11}") String adhaarId,
 			@Pattern(regexp = "[\\d]{8}") String dIN, @Pattern(regexp = "[\\d\\D]+{0,125}") String taxPayersRegNum,
-			@Pattern(regexp = "[1-9]{1}[\\d]{4}") String zipCode) {
+			@Pattern(regexp = "[1-9]{1}[\\d]{4}") String zipCode,
+			@Min(0) @Max(100) BigDecimal percentageOfSharesOfHoldingCompany,
+			@Min(10) @Max(100) BigDecimal percentageOfSharesOfShareHolder) {
 		super();
 		this.c_Id = c_Id;
 		this.pinCode = pinCode;
@@ -165,7 +190,7 @@ public class General2 {
 		this.dIN = dIN;
 		this.taxPayersRegNum = taxPayersRegNum;
 		this.zipCode = zipCode;
+		this.percentageOfSharesOfHoldingCompany = percentageOfSharesOfHoldingCompany;
+		this.percentageOfSharesOfShareHolder = percentageOfSharesOfShareHolder;
 	}
-
-	 
 }

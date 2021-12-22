@@ -1,33 +1,31 @@
 package com.validations.testing;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
-
+import java.util.Set;
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
-
 import com.validations.checking.ItrValidationsApplication;
-import com.validations.checking.dao.NatureOfBusinessDao;
 import com.validations.checking.entities.NatureOfBusiness;
 
 @SpringBootTest
 @ContextConfiguration(classes = ItrValidationsApplication.class)
 class NatureOfBusinesstest {
 
-	@Autowired
-	private NatureOfBusinessDao valrepo;
+private Validator validator;
 	
+	NatureOfBusiness val = new NatureOfBusiness();
+
 	@Test
-	void test() {
-		NatureOfBusiness val = new NatureOfBusiness();
+	public void cName() {
+		validator = Validation.buildDefaultValidatorFactory().getValidator();
 		
-		val.setName("Test name");
-
-		this.valrepo.save(val);
-		valrepo.existsById(val.getId());
-		assertThat(true).isTrue();
+		val.setName("Tasdiq Shaikh");
+		Set<ConstraintViolation<NatureOfBusiness>> violations = validator.validate(val);
+		assertTrue(violations.isEmpty());
 	}
-
 }

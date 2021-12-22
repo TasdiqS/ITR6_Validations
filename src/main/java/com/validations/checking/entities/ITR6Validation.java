@@ -1,12 +1,16 @@
 package com.validations.checking.entities;
 
+import java.math.BigDecimal;
+import java.sql.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.Pattern;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -17,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 public class ITR6Validation {
 	/*
 	 * This file contains validation fields of every type and every tab combined.
-	 * total 22 fields
+	 * total 24 fields
 	 */
 
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq")
@@ -68,8 +72,8 @@ public class ITR6Validation {
 	 @Pattern(regexp = "[\\d]{8}")
 	 private String dIN;
 	 	 
-	 @JsonFormat(pattern = "dd/mm/yyyy")
-	 private String date;
+	 @Pattern(regexp = "[0-9]{1,2}(/)[0-9]{1,2}(/)[0-9]{4}")
+	 private String date ;
 	 
 	 @Pattern(regexp="[\\d]{0,14}") //no decimal only upto 14 digits
 	 private String amount;
@@ -94,16 +98,73 @@ public class ITR6Validation {
 	 
 	 @Pattern(regexp="[A-Z]{4}[0]{1}[A-Z0-9]{6}") //it should be exactly 11 in length with first four alphabets , followed by zero and remaining 6 should be alphanumeric
 	 private String ifscCode;
+	 
+	 @Min(0) @Max(100) //should be 0-100 and automatically converts into decimal
+	 private BigDecimal percentageOfSharesOfHoldingCompany;
+	 
+	 @Min(10) @Max(100) //should be 10-100 and automatically converts data into decimal
+	 private BigDecimal percentageOfSharesOfShareHolder;
 
 		public ITR6Validation() {
 			// TODO Auto-generated constructor stub
 		}
+		
+
+public ITR6Validation(int c_Id, @Pattern(regexp = "[\\d\\D]+{0,125}") String name,
+				@Pattern(regexp = "[\\d\\D]{0,200}") String address, @Pattern(regexp = "[\\d\\D]{0,50}") String city,
+				@Pattern(regexp = "[A-Za-z]{0,125}") String country,
+				@Pattern(regexp = "[+]{1}[\\d]{1,4}") String countryCode,
+				@Pattern(regexp = "[1-9]{1}[\\d]{4}") String zipCode,
+				@Pattern(regexp = "[1-9]{1}[\\d]{5}") String pinCode,
+				@Pattern(regexp = "[2-9]{1}[\\d]{11}") String adhaarId,
+				@Pattern(regexp = "[A-Z]{3}[P]{1}[A-Z]{1}[\\d]{4}[A-Z]{1}") String personPanNum,
+				@Pattern(regexp = "[A-Z]{3}[C]{1}[A-Z]{1}[\\d]{4}[A-Z]{1}") String companyPanNum,
+				@Pattern(regexp = "[7-9]{1}[\\d]{9}") String phNo,
+				@Pattern(regexp = "[A-Za-z0-9_.]+[@][a-z]+[.][a-z]{2,3}") String emailId,
+				@Pattern(regexp = "^([L|U]{1})([\\d]{5})([A-Za-z]{2})([\\d]{4})([A-Za-z]{3})([\\d]{6})$") String cIN,
+				@Pattern(regexp = "[\\d]{8}") String dIN,
+				@Pattern(regexp = "[0-9]{1,2}(/)[0-9]{1,2}(/)[0-9]{4}") String date,
+				@Pattern(regexp = "[\\d]{0,14}") String amount,
+				@Pattern(regexp = "[0-9]{3}[A-Za-z0-9]{4}") String bsrCode,
+				@Pattern(regexp = "[\\d]{5}") String serialNumberOfChallan,
+				@Pattern(regexp = "[\\d\\D]{0,20}") String accountNumber,
+				@Pattern(regexp = "[\\d\\D]{0,12}") String sebiRegNumber,
+				@Pattern(regexp = "[\\d\\D]{0,16}") String articleOfDtaa,
+				@Pattern(regexp = "[A-Z]{4}[0]{1}[A-Z0-9]{6}") String ifscCode,
+				@Min(0) @Max(100) BigDecimal percentageOfSharesOfHoldingCompany,
+				@Min(10) @Max(100) BigDecimal percentageOfSharesOfShareHolder) {
+			super();
+			this.c_Id = c_Id;
+			this.name = name;
+			this.address = address;
+			this.city = city;
+			this.country = country;
+			this.countryCode = countryCode;
+			this.zipCode = zipCode;
+			this.pinCode = pinCode;
+			this.adhaarId = adhaarId;
+			this.personPanNum = personPanNum;
+			this.companyPanNum = companyPanNum;
+			this.phNo = phNo;
+			this.emailId = emailId;
+			this.cIN = cIN;
+			this.dIN = dIN;
+			this.date = date;
+			this.amount = amount;
+			this.bsrCode = bsrCode;
+			this.serialNumberOfChallan = serialNumberOfChallan;
+			this.accountNumber = accountNumber;
+			this.sebiRegNumber = sebiRegNumber;
+			this.articleOfDtaa = articleOfDtaa;
+			this.ifscCode = ifscCode;
+			this.percentageOfSharesOfHoldingCompany = percentageOfSharesOfHoldingCompany;
+			this.percentageOfSharesOfShareHolder = percentageOfSharesOfShareHolder;
+		}
+
 
 public int getC_Id() {
 	return c_Id;
 }
-
-
 public void setC_Id(int c_Id) {
 	this.c_Id = c_Id;
 }
@@ -112,8 +173,6 @@ public void setC_Id(int c_Id) {
 public String getName() {
 	return name;
 }
-
-
 public void setName(String name) {
 	this.name = name;
 }
@@ -336,6 +395,22 @@ public String getIfscCode() {
 
 public void setIfscCode(String ifscCode) {
 	this.ifscCode = ifscCode;
+}
+
+public BigDecimal getPercentageOfSharesOfHoldingCompany() {
+	return percentageOfSharesOfHoldingCompany;
+}
+
+public void setPercentageOfSharesOfHoldingCompany(BigDecimal percentageOfSharesOfHoldingCompany) {
+	this.percentageOfSharesOfHoldingCompany = percentageOfSharesOfHoldingCompany;
+}
+
+public BigDecimal getPercentageOfSharesOfShareHolder() {
+	return percentageOfSharesOfShareHolder;
+}
+
+public void setPercentageOfSharesOfShareHolder(BigDecimal percentageOfSharesOfShareHolder) {
+	this.percentageOfSharesOfShareHolder = percentageOfSharesOfShareHolder;
 }
 
 

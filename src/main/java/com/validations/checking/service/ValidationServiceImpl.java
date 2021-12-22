@@ -7,9 +7,6 @@ import com.validations.checking.dao.General2Dao;
 import com.validations.checking.dao.NatureOfBusinessDao;
 import com.validations.checking.dao.ValidationDao;
 import com.validations.checking.entities.General2;
-import com.validations.checking.dao.General2Dao;
-import com.validations.checking.dao.ValidationDao;
-import com.validations.checking.entities.General2;
 import com.validations.checking.entities.ITR6Validation;
 import com.validations.checking.entities.NatureOfBusiness;
 
