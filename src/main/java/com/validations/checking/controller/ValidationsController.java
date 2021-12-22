@@ -13,6 +13,7 @@ import com.validations.checking.entities.General2;
 import com.validations.checking.entities.IT;
 import com.validations.checking.entities.ITR6Validation;
 import com.validations.checking.entities.NatureOfBusiness;
+import com.validations.checking.entities.OS;
 import com.validations.checking.entities.PartB;
 import com.validations.checking.service.ValidationService;
 
@@ -102,7 +103,15 @@ public class ValidationsController {
 	{
 		return validationservice.getPartBData();	
 	}
-
-
 	
-}
+	@PostMapping("/OS")
+	public OS addData(@RequestBody OS data)
+	{
+		return validationservice.addOSData(data);
+	}
+	@GetMapping("/OS")
+	public List<OS> getOSData()
+	{
+		return validationservice.getOSData();
+	}
+	}

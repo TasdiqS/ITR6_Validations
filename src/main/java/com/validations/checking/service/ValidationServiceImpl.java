@@ -4,21 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.validations.checking.dao.EIDao;
-import com.validations.checking.dao.General1Dao;
-import com.validations.checking.dao.General2Dao;
-import com.validations.checking.dao.ITDao;
-import com.validations.checking.dao.NatureOfBusinessDao;
-import com.validations.checking.dao.PartBDao;
-import com.validations.checking.dao.ValidationDao;
-import com.validations.checking.entities.EI;
-import com.validations.checking.entities.General1;
-import com.validations.checking.entities.General2;
-import com.validations.checking.entities.IT;
-import com.validations.checking.entities.ITR6Validation;
-import com.validations.checking.entities.NatureOfBusiness;
-import com.validations.checking.entities.PartB;
+import com.validations.checking.entities.*;
+import com.validations.checking.dao.*;
 
 @Service
 public class ValidationServiceImpl implements ValidationService {
@@ -43,7 +30,10 @@ public class ValidationServiceImpl implements ValidationService {
 
 	@Autowired
 	private PartBDao partbDao;
-
+	
+	@Autowired
+	private OSDao osDao;
+	
 	@Override
 	public String test() {
 		return "The configuration is done properly... this call is from service impl class";
@@ -120,6 +110,19 @@ public class ValidationServiceImpl implements ValidationService {
 	@Override
 	public PartB addPartBData(PartB data) {
 		return partbDao.save(data);
-
 	}
-}
+		
+		@Override
+		public List<OS> getOSData()
+		{
+			// TODO Auto-generated method stub
+			return this.osDao.findAll() ;
+		}
+		
+		@Override
+		public OS addOSData(OS data)
+		{
+		// TODO Auto-generated method stub
+			return osDao.save(data);
+			}
+		}

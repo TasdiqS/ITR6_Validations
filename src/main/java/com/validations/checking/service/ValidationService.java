@@ -8,6 +8,7 @@ import com.validations.checking.entities.General2;
 import com.validations.checking.entities.IT;
 import com.validations.checking.entities.ITR6Validation;
 import com.validations.checking.entities.NatureOfBusiness;
+import com.validations.checking.entities.OS;
 import com.validations.checking.entities.PartB;
 
 public interface ValidationService {
@@ -34,4 +35,7 @@ public interface ValidationService {
 	
 	public PartB addPartBData(PartB data);
 	public List<PartB>getPartBData();
-}
+
+	public OS addOSData(OS data);
+	public List<OS> getOSData();
+	}
