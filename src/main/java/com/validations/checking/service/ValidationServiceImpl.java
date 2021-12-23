@@ -4,17 +4,17 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-<<<<<<< HEAD
+
 import com.validations.checking.dao.General2Dao;
 import com.validations.checking.dao.NatureOfBusinessDao;
 import com.validations.checking.dao.ValidationDao;
 import com.validations.checking.entities.General2;
 import com.validations.checking.entities.ITR6Validation;
 import com.validations.checking.entities.NatureOfBusiness;
-=======
+
 import com.validations.checking.entities.*;
 import com.validations.checking.dao.*;
->>>>>>> ae91ba71587d60aa338978acf2216889ea4257de
+
 
 @Service
 public class ValidationServiceImpl implements ValidationService {

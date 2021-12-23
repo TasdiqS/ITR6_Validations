@@ -1,7 +1,4 @@
 package com.validations.testing;
-
-import static org.assertj.core.api.Assertions.assertThat;
-
 import java.math.BigDecimal;
 import java.util.Set;
 
@@ -14,14 +11,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import com.validations.checking.ItrValidationsApplication;
-import com.validations.checking.dao.ITDao;
-import com.validations.checking.dao.ValidationDao;
-import com.validations.checking.entities.IT;
-import com.validations.checking.entities.ITR6Validation;
 import com.validations.checking.entities.ITR6Validation;
 
 @SpringBootTest
@@ -53,7 +46,7 @@ import com.validations.checking.entities.ITR6Validation;
 	@Test
 	public void AdhaarId() {
 		val.setAdhaarId("312345678901");
-<<<<<<< HEAD
+
 		Set<ConstraintViolation<ITR6Validation>> violations = validator.validate(val);
 		
 		assertTrue(violations.isEmpty());
@@ -67,13 +60,13 @@ import com.validations.checking.entities.ITR6Validation;
 	}
 	@Test
 	public void CompanyPan() {
-=======
+
 		val.setAmount("222000");
 		val.setArticleOfDtaa("12345");
 		//val.setBsrCode("1234567");
 		val.setcIN("L12345AB1234ABC123456");
 		val.setCity("Bombay");
->>>>>>> ae91ba71587d60aa338978acf2216889ea4257de
+
 		val.setCompanyPanNum("ABCCA1234A");
 		Set<ConstraintViolation<ITR6Validation>> violations = validator.validate(val);
 		

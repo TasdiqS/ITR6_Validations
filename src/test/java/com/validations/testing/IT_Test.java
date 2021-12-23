@@ -1,39 +1,62 @@
 package com.validations.testing;
+import static org.junit.jupiter.api.Assertions.*;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import java.util.Set;
 
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 
 import com.validations.checking.ItrValidationsApplication;
-import com.validations.checking.dao.ITDao;
 import com.validations.checking.entities.IT;
 
 @SpringBootTest
 @ContextConfiguration(classes = ItrValidationsApplication.class)
-public class IT_Test {
-	@Autowired
-	private ITDao itrepo;
-     
-	@Test
-	void Test_IT()
+class ITtest {
+	
+	
+	
+	private Validator validator;
+	IT val=new IT();
+	
+	
+	
+	@BeforeEach
+	public void setUp()
 	{
-		IT it = new IT();
-		
-		it.setBsr_no("1234567");
-		it.setSerial_no_challan("67287");
-		it.setAmount("98312980000");
-		this.itrepo.save(it);
-		itrepo.existsById(it.getC_Id());
-		assertThat(true).isTrue();
-		
-		
-		
+	ValidatorFactory factory=Validation.buildDefaultValidatorFactory();
+	validator=factory.getValidator();
 	}
+
 	
 	
 	
+	
+	
+	@Test
+	public void Bsr_no() {
+		val.setBsr_no("234avsd");
+		Set<ConstraintViolation<IT>> violations= validator.validate(val);
+		assertTrue(violations.isEmpty());
+	}
+	@Test
+	public void Serial_no_challan() {
+		val.setSerial_no_challan("23423");
+		Set<ConstraintViolation<IT>> violations= validator.validate(val);
+		assertTrue(violations.isEmpty());
+	}
+	@Test
+	public void setAmount() {
+		val.setAmount("98876473");
+		Set<ConstraintViolation<IT>> violations= validator.validate(val);
+		assertTrue(violations.isEmpty());
+	}
 
 }
+

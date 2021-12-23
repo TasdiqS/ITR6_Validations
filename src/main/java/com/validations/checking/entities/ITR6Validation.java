@@ -1,7 +1,6 @@
 package com.validations.checking.entities;
 
 import java.math.BigDecimal;
-import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,7 +11,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Pattern;
-import com.fasterxml.jackson.annotation.JsonFormat;
+
 
 
 @Entity
